@@ -17,26 +17,29 @@
 <body>
 	<div id="main-logged-in">
 		<header th:insert="fragments.html::header-logged-in"></header>
-		<div class="section">
-			<div class="container" style="width: 100%;" >
-				<div class="card is-horizontal" th:each="notification : ${notifications}" style="width: 100%;" th:onclick="viewProfile([[${notification.userFromDto.idEncoded}]])">
-					<div class="card-image">
-						<figure class="image">
-							<img th:src="${notification.userFromDto.profilePicture}" style="max-height: 200px; max-width: 200px;">
-						</figure>
-					</div>
-					<div class="card-content">
-						<div class="profile-bottom full-width"
-							style="display: inline-block;">
-							<span>You have been liked by </span><span th:text="${notification.userFromDto.firstName}"></span>
+		<section class="container" id="main-container">
+			<div class="section">
+				<div class="container" style="width: 100%;">
+					<div class="card is-horizontal"
+						th:each="notification : ${notifications}" style="width: 100%;"
+						th:onclick="viewProfile([[${notification.userFromDto.idEncoded}]])">
+						<div class="card-image">
+							<figure class="image">
+								<img th:src="${notification.userFromDto.profilePicture}">
+							</figure>
 						</div>
-					</div>
+						<div class="card-content">
+							<div class="profile-bottom full-width"
+								style="display: inline-block;">
+								<span>You have been liked by </span><span
+									th:text="${notification.userFromDto.firstName}"></span>
+							</div>
+						</div>
 
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<section class="container" id="main-container"></section>
+		</section>
 	</div>
 
 	<footer th:replace="fragments.html::navigation"></footer>
