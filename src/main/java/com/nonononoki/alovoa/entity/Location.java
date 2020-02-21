@@ -1,10 +1,13 @@
 package com.nonononoki.alovoa.entity;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+import com.nonononoki.alovoa.component.TextEncryptorConverter;
 
 import lombok.Data;
 
@@ -19,6 +22,9 @@ public class Location {
 	@OneToOne
 	private User user;
 
+	@Convert(converter = TextEncryptorConverter.class)
 	private String latitude;
+	
+	@Convert(converter = TextEncryptorConverter.class)
 	private String longitude;
 }
