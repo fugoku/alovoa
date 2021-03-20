@@ -30,7 +30,6 @@ public class UserDates {
 	private User user;
 	
 	@Column(nullable = false)
-	//private Date dateOfBirth;
 	private Date dateOfBirth;
 
 	private Date activeDate = new Date();
