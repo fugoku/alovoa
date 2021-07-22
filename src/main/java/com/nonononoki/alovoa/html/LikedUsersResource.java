@@ -39,7 +39,7 @@ public class LikedUsersResource {
 			UnsupportedEncodingException {
 
 		User user = authService.getCurrentUser();
-		ModelAndView mav = new ModelAndView("blocked-users");
+		ModelAndView mav = new ModelAndView("liked-users");
 		List<UserLike> userLikes = user.getLikes();
 		List<User> likedUsers = userLikes.stream().map(b -> b.getUserTo()).collect(Collectors.toList());
 		List<UserDto> users = new ArrayList<>();
